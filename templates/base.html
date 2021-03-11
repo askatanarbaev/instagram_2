@@ -22,6 +22,7 @@
 <style>
   body {
   padding-top: 56px;
+  background-color:#ffffff;
   }
 </style>
 
@@ -50,9 +51,7 @@
           <li class="nav-item">
             <a class="nav-link" href="{% url 'login' %}">Войти<span class="badge badge-pill badge-danger"></span></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Подать обьявление<span class="badge badge-pill badge-danger"></span></a>
-          </li>
+
         </ul>
       </div>
     </div>
@@ -64,14 +63,12 @@
     <div class="row">
 
       <div class="col-lg-3">
-
         <h1 class="my-4">Mini Shop</h1>
         <div class="list-group">
-            {% for category in model4 %}
-          <a href="{% url 'category_detail' slug=category.slug %}" class="list-group-item">{{ category.name }}</a>
-            {% endfor %}
+          <a href="{% url 'category_notebook' %}" class="list-group-item">Notebook</a>
+          <a href="{% url 'category_smartphones' %}" class="list-group-item">Smartphone</a>
+          <a href="{% url 'category_car' %}" class="list-group-item">Car</a>
         </div>
-
       </div>
       <!-- /.col-lg-3 -->
 

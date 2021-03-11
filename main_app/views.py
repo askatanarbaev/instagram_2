@@ -13,8 +13,23 @@ all_model = [model1, model2, model3]
 
 def post_list(request):
     all_models = all_model
-    model4 = Category.objects.all()
     return render(request, "base.html", locals())
+
+
+def get_category_notebook(request):
+    notebooks = Notebook.objects.all()
+    return render(request, 'category_detail.html', locals())
+
+
+def get_category_spartphone(request):
+    smartphones = Smartphone.objects.all()
+    return render(request, 'category_detail.html', locals())
+
+
+def get_category_car(request):
+    cars = Car.objects.all()
+    return render(request, 'category_detail.html', locals())
+
 
 class NotebookDetailView(DetailView):
     model = Notebook

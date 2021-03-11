@@ -14,7 +14,56 @@
             </div>
           </div>
         </div>
-<div class="shadow-lg p-3 mb-5 bg-body rounded" style="font-size:1.5em;">Категория: {{ category.name }}
+
+
+<div class="shadow-lg p-3 mb-5 bg-body rounded" style="font-size:1.5em;">категория товаров</div>
+
+
+<div class="row">
+<!--  NOTEBOOKS  -->
+{% for product in notebooks  %}
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="#"><img class="card-img-top" src="{{ product.image.url }}" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="{% url 'product_detail_notebook' slug=product.slug %}">laptop</a>
+                </h4>
+                <h5>{{ product.price }} сом</h5>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+
+    <!--   SMARTPHONES  -->
+    {% for product in smartphones  %}
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="#"><img class="card-img-top" src="{{ product.image.url }}" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="{% url 'smartphone_detail' slug=product.slug %}">laptop</a>
+                </h4>
+                <h5>{{ product.price }} сом</h5>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+        <!--  CARS  -->
+
+    {% for product in cars  %}
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="#"><img class="card-img-top" src="{{ product.image.url }}" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="{% url 'product_detail' slug=product.slug %}">laptop</a>
+                </h4>
+                <h5>{{ product.price }} сом</h5>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
 
 
 

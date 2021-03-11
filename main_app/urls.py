@@ -11,7 +11,9 @@ urlpatterns = [
     path('create_profile/', NewProfileView.as_view(), name='create_profile'),
     path('my_profile/', my_profile, name='my_profile'),
     path('my_profile/edit_profile/', edit_profile, name='edit_profile'),
-    path('category/<str:slug>/', CategoryDetailView.as_view(), name='category_detail'),
+    path('category/notebook/', get_category_notebook, name='category_notebook'),
+    path('category/smartphones/', get_category_spartphone, name='category_smartphones'),
+    path('category/car/', get_category_car, name='category_car'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
