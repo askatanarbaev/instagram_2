@@ -17,11 +17,18 @@
         <h3>{{ product.title }}</h3>
         <p>Цена: {{ product.price }}</p>
         <p>Описание: {{ product.description }}</p>
+        <p>Телефон номер: {{ product.phone_number }}</p>
         <hr>
     </div>
     <p>Характеристики: </p>
-
-
+    {% if product.processor_freq %}
+        {% include 'notebook.html' %}
+    {% elif product.marka %}
+        {% include 'car.html' %}
+    <!--  include for smartphone  -->
+    {% else %}
+        {% include 'smartphone.html' %}
+    {% endif %}
 </div>
 
 {% endblock content %}
