@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+              <img class="d-block img-fluid" src="https://www.redsign.ru/upload/iblock/3be/3bea109f30ab89d512cc7d13fb505751.jpg" alt="First slide">
+            </div>
+          </div>
+        </div>
+<div class="shadow-lg p-3 mb-5 bg-body rounded" style="font-size:1.5em;">username: {{ p.user }}
+    <br>
+<a href="{% url 'edit_profile' %}" class="btn btn-secondary">Редактировать профиль</a>
+</div>
+<br>
+</div>
+<table class="table table-striped">
+  <tbody>
+    <tr>
+      <td>Firs name</td>
+      <td>{{ p.first_name }}</td>
+    </tr>
+  <tr>
+      <td>Last name</td>
+      <td>{{ p.last_name }}</td>
+    </tr>
+  <tr>
+      <td>Phone number</td>
+      <td>{{ p.phone }}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="row">
+            {% for products in all_models  %}
+                {% for product in products %}
+                    {% if product.created_by == user %}
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="#"><img class="card-img-top" src="{{ product.image.url }}" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+
+                  {% if product.processor_freq %}
+                  <a href="{% url 'product_detail_notebook' slug=product.slug %}">laptop</a>
+                  {% endif %}
+                  {% if product.marka %}
+                  <a href="{% url 'product_detail' slug=product.slug %}">car</a>
+                  {% endif %}
+                  {% if product.resolution %}
+                  <a href="{% url 'smartphone_detail' slug=product.slug %}">smartphone</a>
+                  {% endif %}
+                </h4>
+                <h5>{{ product.price }} сом</h5>
+
+              </div>
+            </div>
+          </div>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+
+
+        <!-- /.row -->
+
+{% endblock%}

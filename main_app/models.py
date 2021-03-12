@@ -22,12 +22,12 @@ class Product(models.Model):
         abstract = True
 
     category = models.ForeignKey(Category, verbose_name='Категории', on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=255, verbose_name='Наименование')
     slug = models.SlugField(unique=True)
     image = models.ImageField(verbose_name='изображение')
     description = models.TextField(verbose_name='Описание', null=True)
     price = models.DecimalField(max_digits=9, decimal_places=2, verbose_name='Цена')
+    phone_number = models.CharField(max_length=30, verbose_name='номер телефона')
 
     def __str__(self):
         return self.title
@@ -38,9 +38,7 @@ class Car(Product):
     engine = models.CharField(max_length=255, verbose_name='Двигатель')
     color = models.CharField(max_length=255, verbose_name='Цвет')
     year = models.CharField(max_length=255, verbose_name='Год')
-
-
-
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
 class Notebook(Product):
@@ -51,13 +49,10 @@ class Notebook(Product):
     ram = models.CharField(max_length=255, verbose_name='Оперитавная память')
     video = models.CharField(max_length=255, verbose_name='Видео карта')
     time_without_change = models.CharField(max_length=255, verbose_name='Время работы акумулятора')
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return "{}: {}".format(self.category.name, self.title)
-
-
-
-
 
 
 class Smartphone(Product):
@@ -68,12 +63,10 @@ class Smartphone(Product):
     ram = models.CharField(max_length=255, verbose_name='Оперитавная память')
     main_camp_mp = models.CharField(max_length=255, verbose_name='Главная камера')
     frontal_cam_mp = models.CharField(max_length=255, verbose_name='Фронтальная камера')
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return "{}: {}".format(self.category.name, self.title)
-
-
-
 
 
 class Profile(models.Model):
