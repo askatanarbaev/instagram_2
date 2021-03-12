@@ -5,14 +5,14 @@
 4) pip install -r requairments.txt
 
 5) создайте базу данных postgress 
-create user <database user> with password 'your_super_secret_password';
-alter role <database user> superuser ;
-alter role <database user> with password 'your_super_secret_password';
-alter role <database user> createrole createdb;
-create database <database name> owner <database user>;  
+6) create user <database user> with password 'your_super_secret_password';
+7) alter role <database user> superuser ;
+8) alter role <database user> with password 'your_super_secret_password';
+9) alter role <database user> createrole createdb;
+10) create database <database name> owner <database user>;  
   
-6) python manage.py makemigrations
-7) python manage.py migrate
-8) python manage.py createsuperuser
-9) python manage.py runserver
-10) зойдите в админку создате категории, товары, и профиль )
+11) python manage.py makemigrations
+12) python manage.py migrate
+13) python manage.py createsuperuser
+14) python manage.py runserver
+15) зойдите в админку создате категории, товары, и профиль )
