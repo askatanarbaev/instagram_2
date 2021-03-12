@@ -9,10 +9,10 @@
 7) alter role "database user" superuser ;
 8) alter role "database user" with password 'your_super_secret_password';
 9) alter role "database user" createrole createdb;
-10) create database "database name" owner <database user>;  
+10) create database "database name" owner "database user";  
   
 11) python manage.py makemigrations
 12) python manage.py migrate
 13) python manage.py createsuperuser
 14) python manage.py runserver
-15) зойдите в админку создате категории, товары, и профиль )
+15) зойдите в админку создайте три категории "car, notebook, smartphone" и сотвественно товары для них и профиль
