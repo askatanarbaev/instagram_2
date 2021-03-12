@@ -1,5 +1,5 @@
 # mini_shop
-1) создайте виртуальное окружение активируйте и активируйте
+1) создайте виртуальное окружение и активируйте 
 2) python3 -m venv venv
 3) . venv/bin/activate
 4) pip install -r requairments.txt
